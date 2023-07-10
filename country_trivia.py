@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import sqlalchemy as db
 
+
 # --define functions--
 
 
@@ -30,6 +31,7 @@ def select_country():
     response = requests.get(
         f'https://restcountries.com/v3.1/name/{name}?fields=capital,currencies,region')
     response_data = response.json()
+    print(response_data)
 
     while 'status' in response_data:
         name = input("Choose a country to be quizzed on: ")
@@ -118,6 +120,14 @@ def quiz(name, database):
     print("")
     print(
         f"Answered {correct} questions correctly and {incorrect} questions incorrectly")
+    
+    # find the Username, name and last name
+
+    # store number of correct answers and incorrect answers as well as percentage
+    store_info = {
+        
+    }
+    percentage = correct // (correct + incorrect)
     if correct >= 2:
         print("Well done!!!")
     else:
