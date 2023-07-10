@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country Trivia - Quiz</title>
+</head>
+<body>
+  <h1>Country Trivia - Quiz</h1>
+  <h2>Question 1</h2>
+  <p>What is the capital of {{ country }}?</p>
+  <form action="/quiz" method="POST">
+    <input type="hidden" name="country" value="{{ country }}">
+    <input type="text" name="answer" required>
+    <input type="submit" value="Submit Answer">
+  </form>
+</body>
+</html>
