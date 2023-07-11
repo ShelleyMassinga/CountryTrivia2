@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<!--    background-image: url("https://wallpapers.com/images/hd/high-resolution-world-map-night-satellite-view-5poq99v0hezp2yqc.jpg");-->
+
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="static/styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="landing">
+           <h1><strong>Welcome to Country Trivia!</strong></h1>
+       </div>
+
+       <div class="landing">
+           <a type="button" class="btn btn-primary" href="{{ url_for('sign_up') }}">Click to sign up!
+<!--               <button type="button" class="btn btn-primary" >Click to sign up!</button>-->
+           </a>
+       </div>
+
+        <div class="landing">
+            <a type="button" class="btn btn-success" href="{{ url_for('login') }}">Already signed up! click here</a>
+       </div>
+
+
+    </body>
+</html>
