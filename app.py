@@ -10,10 +10,16 @@ def home():
 @app.route('/quiz', methods= ['POST'])
 def quiz():
     country_name=request.form['country']
+    user_answer=request.form['answer']
     country_data = get_country_data(country_name)
     
     if country_data:
-        return render_template('quiz.html', country=country_data)
+        correct_answer=country_data.get('capital')
+        if user_answer.lower()==correct_answer.lower():
+            feedback='Correct!'
+        else:
+            feedback=f'Incorrect! The correct answer is {correct_answer}.'
+        return render_template('quiz.html', country=country_data, feedback=feedback)
     else:
         return render_template('error.html')
 
