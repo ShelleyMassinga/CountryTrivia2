@@ -6,9 +6,10 @@
 <body>
   <h1>Country Trivia - Quiz</h1>
   <h2>Question 1</h2>
-  <p>What is the capital of {{ country }}?</p>
+  <p>What is the capital of {{ country.name }}?</p>
   <form action="/quiz" method="POST">
     <input type="hidden" name="country" value="{{ country }}">
+    <h2>Answer:</h2>
     <input type="text" name="answer" required>
     <input type="submit" value="Submit Answer">
   </form>
