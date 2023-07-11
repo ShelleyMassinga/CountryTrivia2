@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>World Map Example</title>
+    <script src="./static/mapdata.js"></script>
+    <script src="./static/worldmap.js"></script>
+    <script src="./static/file.js"></script>
+    <script type="text/javascript">
+       simplemaps_worldmap.hooks.click_state = function(id){
+         country_name = simplemaps_worldmap_mapdata.state_specific[id].name;
+         strippedString = country_name.replace(/[^A-Za-z]/g, '');
+         location.href = "http://127.0.0.1:5000/test/" + strippedString;
+
+       }
+    </script>
+
+
+
+<!--    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.js"></script>-->
+<!--    <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">-->
+    <script>
+      new svgMap({
+        targetElementID: 'svgMap',
+        data: {
+          data: {
+            gdp: {
+              name: 'GDP per capita',
+              format: '{0} USD',
+              thousandSeparator: ',',
+              thresholdMax: 50000,
+              thresholdMin: 1000
+            },
+            change: {
+              name: 'Change to year before',
+              format: '{0} %'
+            }
+          },
+          applyData: 'gdp',
+          values: {
+            AF: {gdp: 587, change: 4.73},
+            AL: {gdp: 4583, change: 11.09},
+            DZ: {gdp: 4293, change: 10.01}
+            // ...
+          }
+        }
+      });
+    </script>
+
+
+
+  </head>
+  <body>
+  <h1>HTML5/Javascript World Map</h1>
+    <div id="map"></div>
+    <div id="svgMap"></div>
+
+    
+    </body>
+</html>
+      
+    
+
