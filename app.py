@@ -13,7 +13,7 @@ def quiz():
     country_data = get_country_data(country_name)
     
     if country_data:
-        retunr render_template('quiz.html', country=country_data)
+        return render_template('quiz.html', country=country_data)
     else:
         return render_template('error.html')
 
