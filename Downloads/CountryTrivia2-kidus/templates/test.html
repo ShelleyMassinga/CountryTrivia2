@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>World Map Example</title>
+    <script src="./static/mapdata.js"></script>
+    <script src="./static/worldmap.js"></script>
+    <script src="./static/file.js"></script>
+    <script type="text/javascript">
+       simplemaps_worldmap.hooks.click_state = function(id){
+         country_name = simplemaps_worldmap_mapdata.state_specific[id].name;
+         location.href = "http://127.0.0.1:5000/test/" + country_name;
+
+       }
+    </script>
+    
+  </head>
+  <body>
+  <h1>Welcome, {{ username }}, please choose a country!</h1>
+    <div id="map"></div>
+
+    
+    </body>
+</html>
+      
+    
+

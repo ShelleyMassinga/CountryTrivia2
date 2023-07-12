@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country Trivia - Quiz</title>
+</head>
+<body>
+  <h1>Country Trivia - {{difficulty}}</h1>
+  <h2 style="margin-left:40%;" >Question 1</h2>
+    <form method="POST">
+        {{ form.csrf_token }}
+        <div class="form-control" style="margin-left:40%;">
+            {{ form.question_1.label(class="form-control") }}<br>
+            {{ form.question_1(class="form-control") }}
+        </div>
+        <div class="form-control" style="margin-left:40%;">
+            {{ form.question_2.label(class="form-control") }}<br>
+            {{ form.question_2(class="form-control") }}
+        </div>
+        <div class="mb-3" style="margin-left:40%;">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+  </form>
+</body>
+</html>
