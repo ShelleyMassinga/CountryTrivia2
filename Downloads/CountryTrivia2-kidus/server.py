@@ -44,17 +44,18 @@ def levels(name):
 
 @app.route('/test/<name>/<level>', methods= ['GET', 'POST'])
 def quiz(level, name):
+    session["level"] = level
     if level == "Easy":
         form = QuestionsFormEasy()
         name = session.get('country_name')
         form.question_1.label.text = f"What is the capital of {name}?"
-        form.question_2.label.text = f"What is the national language of {name}?"
+        form.question_2.label.text = f"What continent is {name} located?"
         correct = 0
         incorrect = 0
         if form.validate_on_submit(): # checks if entries are valid
             answers = [form.question_1.data, form.question_2.data]
             country_data = get_country_data(name)
-            correct_answers = [str(country_data["capital"][0]), str(list(country_data["languages"].values())[0])]
+            correct_answers = [str(country_data["capital"][0]), str(country_data["region"])]
             counter = 0
             for answer in answers:
                 if answer.lower() == correct_answers[counter].lower():
@@ -63,7 +64,8 @@ def quiz(level, name):
                     incorrect += 1
                 counter += 1
                 
-            session["level"] = level
+            total=correct + incorrect
+            session["total"] = total
             session["correct"] = correct
             session["incorrect"] = incorrect
             session["answer_1"] = correct_answers[0]
@@ -73,14 +75,15 @@ def quiz(level, name):
     else:
         form = QuestionsFormHard()
         name = session.get('country_name')
-        form.question_1.label.text = f"What is the currency of {name}?"
+        form.question_1.label.text = f"What is the national language of {name}?"
         form.question_2.label.text = f"What is the sub-region location of {name}?"
         correct = 0
         incorrect = 0
         if form.validate_on_submit(): # checks if entries are valid
             answers = [form.question_1.data, form.question_2.data]
             country_data = get_country_data(name)
-            correct_answers = [str(country_data["subregion"]), str(country_data["currencies"].values()["name"])]
+            correct_answers = [str(list(country_data["languages"].values())[0]), str(country_data["subregion"])]
+            print(correct_answers)
             counter = 0
             for answer in answers:
                 if answer.lower() == correct_answers[counter].lower():
@@ -88,7 +91,8 @@ def quiz(level, name):
                 else:
                     incorrect += 1
                 counter += 1
-                
+            total=correct + incorrect
+            session["total"] = total
             session["level"] = level
             session["correct"] = correct
             session["incorrect"] = incorrect
@@ -117,7 +121,11 @@ def results():
     country_name = session.get("country_name")
     answer_1 = session.get("answer_1")
     answer_2 = session.get("answer_2")
-    return render_template('results.html', level=level, correct=correct, incorrect=incorrect, username=username, country_name=country_name, answer_1=answer_1, answer_2=answer_2)
+    total = session.get("total")
+    top_three_scores = database.top_three_correct_answers(country_name, level)
+    session["top_three_scores"] = top_three_scores
+
+    return render_template('results.html', top_three_scores=top_three_scores, total=total, level=level, correct=correct, incorrect=incorrect, username=username, country_name=country_name, answer_1=answer_1, answer_2=answer_2)
 
     
 

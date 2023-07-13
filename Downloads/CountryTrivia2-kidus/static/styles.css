@@ -1,5 +1,5 @@
 body{
-
+    background-image: url("https://thumbs.gfycat.com/HighlevelWearyBubblefish-size_restricted.gif");
 
 }
 
@@ -60,4 +60,50 @@ h1{
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+
+#globe{
+  border-radius: 300px;
+  width: 100%;
+}
+
+#signup-main{
+}
+
+#signup{
+ color: white;
+ text-align: center;
+ font-size: 4rem;
+ padding-top: 5%;
+ padding-bottom: 5%;
+}
+
+#signup-button{
+  text-align: center;
+}
+
+#signup-input{
+  margin-left: 24%;
+  margin-right: 24%;
+  padding-top: 5%;
+
+}
+
+#first-question{
+  font-size: 2rem;
+  margin-bottom: 5%;
+
+  margin-left: 24%;
+  margin-right: 24%;
+  padding-top: 5%;
+
+}
+#second-question{
+  font-size: 2rem;
+  margin-bottom: 2%;
+
+  margin-left: 24%;
+  margin-right: 24%;
+  padding-top: 5%;
+
 }

@@ -1570,16 +1570,7 @@ var simplemaps_worldmap_mapdata = {
 	},
 	
 	
-	locations:{ 
-		paris: { 
-			name: 'Paris',
-			lat: '48.866666670',
-			lng: '2.333333333',
-			color: 'default',
-			description: 'default',
-			url: 'default'
-		}
-	}
+
 
 }	//end of simplemaps_worldmap_mapdata
 
